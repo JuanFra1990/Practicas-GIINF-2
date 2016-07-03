@@ -1,0 +1,22 @@
+#!/bin/bash
+#Autor: Juan Francisco Aban Fontecha
+#Descripcion: Escribe un shell script que elimine  los  archivos  no  ejecutables  del  directorio 
+#~/bin   y  al  final  escriba  el  número  de archivos que ha borrado
+
+if [ -e ~/bin ] && [ -d ~/bin ]
+then
+archivos=$(ls ~/bin)
+contador=0
+for a in ${archivos}
+do
+	if [ ! -x ~/bin/${a} ]
+	then
+		contador=$(( contador+1 ))
+		rm ~/bin/${a}
+	fi
+done
+
+echo "Se han borrado ${contador} archivo(s)"
+else
+	echo "No existe el directorio ~/bin"
+fi

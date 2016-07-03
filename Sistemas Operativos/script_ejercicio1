@@ -1,0 +1,10 @@
+#!/bin/bash
+# Autor: Juan Francisco Abán Fontecha
+#Descripción: Comprueba si al script se le han pasado justamente dos argumentos.
+
+if [ ${#} -ne 2 ]
+then
+	echo "Error: Se le han pasado ${#} argumentos"
+else 
+	echo "El numero de argumentos es 2"
+fi

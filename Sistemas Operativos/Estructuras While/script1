@@ -1,0 +1,25 @@
+if [ ${#} -le 0 ]
+then
+	echo "Error la sintaxis del parametro es: ${0} us1 us2 us3 ..."
+else
+	for a in ${argumentos}
+	do
+		echo ${a} >> argumentos
+	done
+	
+	i=1
+	while read linea 
+	do
+		usuario=$(echo ${linea} | cut -d":" -f1)
+		
+		if [ ${i} = ${usuario} ]
+		then
+			echo "El usuario ${i} existe"
+			exit
+		else
+			echo "El usuario ${i} no existe"
+		fi
+	i=$((i++))
+	done < ./argumentos
+	
+fi

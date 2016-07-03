@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Autor: Juan Francisco Abán Fontecha
+#Descripción: comprueba si existe el directorio pasado por argumento sino lo crea y le da permisos drwx------
+
+if [ ! -e ${1} ]
+then
+	mkdir ${1}
+	chmod 700 ${1}
+	echo "El directorio ha sido creado"
+else
+	echo "El directorio existe"
+fi
+

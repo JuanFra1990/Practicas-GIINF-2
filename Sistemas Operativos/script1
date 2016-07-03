@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Autor: Juan Francisco Abán Fontecha
+#Descripcion: Script que recibe varios argumentos e imprime por pantalla el numero de argumentos y sus valores
+
+echo "el numero de argumentos es: "
+echo ${#}
+
+echo "Los valores de los argumentos son: "
+echo ${*}
+

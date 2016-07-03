@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Autor: Juan Francisco Abán Fontecha
+#Descripcion: Debe recibir un argumento, un nombre de usuario y comprueba si en el directorio base de este existe un archivo llamado .profile, sino lo copie en el desde /etc/skel y le de permisos -rw-r--r--
+
+login=$(cut -f1 -d":" /etc/passwd | grep ${2})
+
+if [ ${#} -eq 2 ]
+then
+	if [ ! ${login} == ""  ]
+	then	
+		if [ ! -e /home/${2}/.profile ]
+		then
+			echo "No existe el archivo"
+			cp /etc/skel/.profile /home/${2}
+			chmod 644 /home/${2}/.profile
+		else
+			echo "El archivo existe para el usuario ${2}"
+		fi
+	else
+		echo "Error: El usuario no existe"
+	fi
+else
+	echo "Error: Numero de parametros incorrectos"
+fi  
